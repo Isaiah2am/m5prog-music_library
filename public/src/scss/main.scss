@@ -1,6 +1,17 @@
 @import "custom";
 @import "~bootstrap/scss/bootstrap";
 
-body {
-    background-color: turquoise;
+
+.flex-card {
+  display: flex;
+  flex-direction: row; 
+  align-items: center;  
+  padding: 20px;
+  gap: 20px;
+  flex-wrap: wrap;
+
+}
+
+:root {
+  --bs-body-bg: var(--bs-gray-100);
 }
