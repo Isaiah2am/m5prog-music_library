@@ -47,7 +47,12 @@ print_r( $single );
 
 
 
-      
+      if ( ! isset($_GET['singleid']) ) {
+          die( 'Geen single gevonden' );
+      }
+      print_r($single_id);
+      $single_id = $_GET['singleid'];
+            
     
    
 
