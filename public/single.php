@@ -4,7 +4,7 @@
 <?php
 
 
-   echo $_GET['singleid'];  
+   
    $single_id = $_GET['singleid'];
 
 
