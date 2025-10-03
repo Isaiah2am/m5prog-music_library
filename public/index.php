@@ -3,25 +3,44 @@
 <html lang="en">
 <?php
 
+require_once('../source/database.php');
+
+$query = 'SELECT * FROM songs ORDER BY title';
+
+$stmt = $connection->prepare($query);
+
+$stmt->execute();
+
+$result = $stmt->get_result();
+
 include_once __DIR__ . '/../views/header.php';
 
 include_once __DIR__ . '/../views/navigation.php';
 
 ?> 
-   <div class="container my-5">
-      <h1>Hello, world!</h1>
-      <div class="col-lg-8 px-0">
-        <p class="fs-5">You've successfully loaded up the Bootstrap starter example. It includes <a href="https://getbootstrap.com/">Bootstrap 5</a> via the <a href="https://www.jsdelivr.com/package/npm/bootstrap">jsDelivr CDN</a> and includes an additional CSS and JS file for your own code.</p>
-        <p>Feel free to download or copy-and-paste any parts of this example.</p>
+  <div class="container my-5">
+    <h1>Home</h1>
 
-        <hr class="col-1 my-4">
+    
+    <div class="flex-card">
+      
+    
+ <?php
+   while( $single = mysqli_fetch_assoc($result) ) {
 
-        <a href="https://getbootstrap.com" class="btn btn-primary">Read the Bootstrap docs</a>
-        <a href="https://github.com/twbs/examples" class="btn btn-secondary">View on GitHub</a>
-      </div>
+    
+
+   include __DIR__ . '/../views/singles-card.php';
+
+      
+    
+   
+}
+ ?>   
+
     </div>
 
-<?php
+    <?php
 
 include_once __DIR__ . '/../views/footer.php';
 

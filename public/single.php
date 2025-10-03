@@ -3,15 +3,27 @@
 <html lang="en">
 <?php
 
+
+   echo $_GET['singleid'];  
+   $single_id = $_GET['singleid'];
+
+
+
 require_once('../source/database.php');
 
-$query = 'SELECT * FROM songs ORDER BY title';
+
+$query = 'SELECT * FROM songs Where id=?';
+
 
 $stmt = $connection->prepare($query);
+
+$stmt->bind_param('i', $single_id);
+
 
 $stmt->execute();
 
 $result = $stmt->get_result();
+
 
 
 
@@ -24,20 +36,21 @@ include_once __DIR__ . '/../views/navigation.php';
     <h1>Singles</h1>
 
     
-    <div class="flex-card">
-      
-    
  <?php
-   while( $single = mysqli_fetch_assoc($result) ) {
 
-    
+$single = mysqli_fetch_assoc($result);
+print_r( $single );
 
-   include __DIR__ . '/../views/singles-card.php';
+   $single = mysqli_fetch_assoc($result);
+
+    $stmt->bind_param('i', $single_id);
+
+
 
       
     
    
-}
+
  ?>   
 
     </div>
