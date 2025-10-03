@@ -2,11 +2,12 @@
 <!doctype html>
 <html lang="en">
 <?php
+
 include_once __DIR__ . '/../views/header.php';
 
 include_once __DIR__ . '/../views/navigation.php';
 
-?>
+?> 
    <div class="container my-5">
       <h1>Hello, world!</h1>
       <div class="col-lg-8 px-0">
