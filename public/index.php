@@ -13,6 +13,14 @@ $stmt->execute();
 
 $result = $stmt->get_result();
 
+var_dump( $_SERVER['REQUEST_URI'] );
+
+$request_url = explode('/', $_SERVER['REQUEST_URI']);
+
+$mijn_pagina = end($request_url);
+
+echo 'ik bekijk nu het bericht: ' . $mijn_pagina;
+
 include_once __DIR__ . '/../views/header.php';
 
 include_once __DIR__ . '/../views/navigation.php';
